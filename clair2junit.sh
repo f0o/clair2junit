@@ -16,7 +16,7 @@ while read line; do
  ver=$(cut -d " " -f 3 <<<"$line")
  echo "      <testcase id=\"$id\" name=\"$name\" time=\"0.001\">"
  echo "         <failure message=\"See $short\" type=\"ERROR\">"
- echo "            Package $pkg Version $ver is vulnerable to $short"
+ echo "            Package $pkg Version $ver is Vulnerable to $short"
  echo "         </failure>"
  echo "      </testcase>"
 done <<<"$tuples"
