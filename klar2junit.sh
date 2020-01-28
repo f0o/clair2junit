@@ -4,6 +4,7 @@
 input=$(cat)
 severities=$(jq '.Vulnerabilities | keys' -c -M -S <<<"$input" | tr -d '[]"' | tr , " ")
 mkdir -p output
+x=0
 for severity in $severities; do
  echo Parsing Severity $severity
  (
@@ -36,4 +37,6 @@ for severity in $severities; do
   echo "   </testsuite>"
   echo "</testsuites>"
  ) > output/$severity.xml
+ x=$((x+1))
 done
+exit $x
